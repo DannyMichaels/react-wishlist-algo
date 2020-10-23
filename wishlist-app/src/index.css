@@ -1,6 +1,4 @@
-html {
-  
-}
+
 
 body {
   margin: 0;
@@ -17,13 +15,15 @@ body {
 
 body::before { /*  how we got border to work */
 content: "";
-position: absolute;
+position: absolute; /* this blocks clicking */
+pointer-events: none;  /* this unblocks clicking */
 top: 0;
 right: 0;
 left: 0;
 bottom: 0;
 border: 10px solid black;
 z-index: 1;
+
 } /* { how we got border to work */
 
 code {

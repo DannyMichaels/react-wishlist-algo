@@ -19,7 +19,7 @@ white-space: nowrap;
 .Header__right {
   flex: 0.1;
   font-weight: 720;
- margin-right 20px;
+ margin-right: 20px;
 }
 
 `
