@@ -4,12 +4,14 @@ import styled from 'styled-components'
 let Div = styled.div`
 display: flex;
 justify-content: center;
-align-items: space-between;
+align-items: center;
 background-color: #ebb44c;
-margin: 20px;
+margin: 5px;
 box-shadow: 2px 2px #919191;
 padding: 20px;
 width: 60vw;
+font-size: 1.25rem;
+white-space: nowrap;
 
 button {
   border: none;
@@ -18,11 +20,12 @@ button {
   color: #c37945;
   font-weight: 900;
   flex: 0.1;
+  
 }
 
 h4 {
-  margin-left: 10px;
-  font-weight: 700;
+  font-size: smaller;
+  font-weight: 650;
   flex: 0.9;
 }
 
