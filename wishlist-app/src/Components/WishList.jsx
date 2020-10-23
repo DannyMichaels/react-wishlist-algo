@@ -20,6 +20,7 @@ function WishList() {
     
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+      <h1 style={{ backgroundColor: '#ebb44c', marginTop: '20px', width: '40vw', textAlign: 'center', boxShadow: '2px 2px #919191', padding: '10px'}}> Your List</h1>
       {itemsList.map((itemSelect, index) => 
         <Item itemsList={itemSelect.item}
           index={index} upVote={upVote} 

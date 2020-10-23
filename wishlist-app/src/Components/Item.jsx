@@ -7,9 +7,9 @@ justify-content: center;
 align-items: space-between;
 background-color: #ebb44c;
 margin: 20px;
-box-shadow: 2px 2px grey;
+box-shadow: 2px 2px #919191;
 padding: 20px;
-width: 50vw;
+width: 60vw;
 
 button {
   border: none;
