@@ -25,7 +25,7 @@ h4 {
   font-weight: 700;
   flex: 0.9;
 }
-/* { color: '#c37945', cursor: 'default', fontWeight: '500'} */
+
 
 p {
 color: #c37945;
@@ -37,7 +37,7 @@ font-weight: 500;
 function Item(props) {
   return (
     <Div>
-     <h4>{props.itemsList}</h4>
+     <h4>{props.inventory}</h4>
       <button onclick={() => props.upVote(props.index)}>
         Up    
       </button>
