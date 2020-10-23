@@ -1,3 +1,7 @@
+html {
+  
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +9,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;/* { how we got border to work */
+  margin: 0;/* { how we got border to work */
+  padding: 0;/* { how we got border to work */
+  position: relative;/* { how we got border to work */
 }
+
+body::before { /*  how we got border to work */
+content: "";
+position: absolute;
+top: 0;
+right: 0;
+left: 0;
+bottom: 0;
+border: 10px solid black;
+z-index: 1;
+} /* { how we got border to work */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
