@@ -15,7 +15,7 @@ body {
 
 body::before { /*  how we got border to work */
 content: "";
-position: absolute; /* this blocks clicking */
+position: fixed; /* this blocks clicking */
 pointer-events: none;  /* this unblocks clicking */
 top: 0;
 right: 0;

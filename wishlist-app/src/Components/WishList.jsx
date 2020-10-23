@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-// import { items } from '../services/itemsList.js'
+// import data from '../services/data.json'
 import Item from './Item'
+import '../App.css'
 
 const itemsList = [
   { "item": "Apple iPad Mini" },
@@ -10,30 +11,27 @@ const itemsList = [
 ]
 
 
-
-
-
 function WishList() {
   
-  const [inventory, setInventory] = useState(itemsList)
+  const [list, setList] = useState(itemsList)
   
   const downVote = (index) => {
-    const removedElement = inventory.splice(index, + -1, 1, inventory[index])
-    inventory.splice(index, 1, removedElement[0])
-    setInventory([...inventory])
+    const removedElement = list.splice(index, +  1, 1, list[index])
+    list.splice(index, 1, removedElement[0])
+    setList([...list])
   }
 
   const upVote = (index) => {
-    const removedElement = inventory.splice(index, + 1, 1, inventory[index])
-    inventory.splice(index, 1, removedElement[0])
-    setInventory([...inventory])
+    const removedElement = list.splice(index, - 1, 1, list[index])
+    list.splice(index, 1, removedElement[0])
+    setList([...list])
   }
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-      <h1 style={{ backgroundColor: '#ebb44c', margin: '20px', width: '70vw', textAlign: 'center', boxShadow: '2px 2px #919191', padding: '10px'}}> Your List </h1>
-      {inventory.map((itemSelect, index) => 
-        <Item inventory={itemSelect.item}
+      <h1 className="home__h1"> Your List </h1>
+      {list.map((itemSelect, index) => 
+        <Item list={itemSelect.item}
           index={index} upVote={upVote} 
           downVote={downVote}
         />

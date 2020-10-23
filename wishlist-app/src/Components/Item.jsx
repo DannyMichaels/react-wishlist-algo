@@ -11,7 +11,10 @@ box-shadow: 2px 2px #919191;
 padding: 20px;
 width: 60vw;
 font-size: 1.25rem;
-white-space: nowrap;
+/* white-space: nowrap; */
+@media (min-width: 500px) {
+width: 40vw;
+}
 
 button {
   border: none;
@@ -40,7 +43,7 @@ font-weight: 500;
 function Item(props) {
   return (
     <Div>
-     <h4>{props.inventory}</h4>
+     <h4>{props.list}</h4>
       <button onclick={() => props.upVote(props.index)}>
         Up    
       </button>

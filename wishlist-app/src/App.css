@@ -1,8 +1,26 @@
 * { 
 margin: 0;
 }
-/* .App {
+
+.home__h1 {
+  background-color: #ebb44c;
+  margin: 20px;
+  width: 70vw;
   text-align: center;
-} */
+  box-shadow: 2px 2px #919191;
+  padding: 10px;
+}
 
+@media (min-width: 500px) {
+  .home__h1 {
+  width: 50vw;
+  }
+}
 
+@media (min-width: 1024px) {
+  .home__h1 {
+  width: 50vw;
+  }
+}
+
+/* style={{ backgroundColor: '#ebb44c', margin: '20px', width: '70vw', textAlign: 'center', boxShadow: '2px 2px #919191', padding: '10px'}} */
