@@ -10,13 +10,19 @@ function WishList() {
   const [list, setList] = useState(data)
   
   const downVote = (index) => {
-    const removedElement = list.splice(index, +  1, 1, list[index])
+    if (index >= list.length - 1 ) {
+      return
+    }
+    const removedElement = list.splice(index +  1, 1, list[index])
     list.splice(index, 1, removedElement[0])  
     setList([...list])
   }
 
   const upVote = (index) => {
-    const removedElement = list.splice(index, - 1, 1, list[index])
+    if (index === 0) {
+      return 
+    }
+    const removedElement = list.splice(index - 1, 1, list[index])
     list.splice(index, 1, removedElement[0])
     setList([...list])
   }
