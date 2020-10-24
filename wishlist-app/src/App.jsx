@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import Layout from './Components/Layout/Layout.jsx'
-import Home from './screens/Home'
+import WishList from './screens/WishList';
 
 function App() {
   return (
     <div className="App">
       <Layout>
-      <Home />
+      <WishList />
         </Layout>
     </div>
   );

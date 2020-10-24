@@ -6,7 +6,7 @@ let StyledFooter = styled.footer`
   left: 0;
   bottom: 0;
   width: 100%;
-  background: yellow;
+  background-color: #f9f854;
   text-align: center;
   text-indent: 100%;
   white-space: nowrap;

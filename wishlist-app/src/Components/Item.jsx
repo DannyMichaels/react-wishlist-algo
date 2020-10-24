@@ -15,6 +15,7 @@ font-size: 1.25rem;
 @media (min-width: 500px) {
 width: 40vw;
 }
+  
 
 button {
   border: none;
@@ -44,15 +45,15 @@ function Item(props) {
   return (
     <Div>
      <h4>{props.list}</h4>
-      <button onclick={() => props.upVote(props.index)}>
+      <button onClick={() => props.upVote(props.index)}>
         Up    
       </button>
       <p>|</p>
-      <button onclick={() => props.downVote(props.index)}>
+      <button onClick={() => props.downVote(props.index)}>  
         Down
       </button>
     </Div>
   )
 }
-
+// oh my god, shay, I literally delayed the homework submission by a day because I had "onclick" for both buttons instead of "onClick"
 export default Item

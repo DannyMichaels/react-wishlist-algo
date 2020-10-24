@@ -1,23 +1,17 @@
 import React, {useState} from 'react'
-// import data from '../services/data.json'
-import Item from './Item'
+import data from '../data'
+import Item from '../Components/Item'
 import '../App.css'
 
-const itemsList = [
-  { "item": "Apple iPad Mini" },
-  { "item": "Vespa Scooter" },
-  { "item": "Shake Shack Milkshake" },
-  { "item": "12oz Stumptown Coffee" }
-]
 
 
 function WishList() {
   
-  const [list, setList] = useState(itemsList)
+  const [list, setList] = useState(data)
   
   const downVote = (index) => {
     const removedElement = list.splice(index, +  1, 1, list[index])
-    list.splice(index, 1, removedElement[0])
+    list.splice(index, 1, removedElement[0])  
     setList([...list])
   }
 
