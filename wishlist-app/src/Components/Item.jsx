@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 let Div = styled.div`
 display: flex;
-justify-content: center;
 align-items: center;
 background-color: #ebb44c;
 margin: 5px;
@@ -11,7 +10,7 @@ box-shadow: 2px 2px #919191;
 padding: 20px;
 width: 60vw;
 font-size: 1.25rem;
-/* white-space: nowrap; */
+
 @media (min-width: 500px) {
 width: 40vw;
 }
@@ -24,7 +23,11 @@ button {
   color: #c37945;
   font-weight: 900;
   flex: 0.1;
-  
+}
+
+button:hover {
+font-size: medium;
+margin-left: 5px;
 }
 
 h4 {
@@ -39,6 +42,7 @@ color: #c37945;
 cursor: default;
 font-weight: 500;
 }
+
 `
 
 function Item(props) {
@@ -48,10 +52,11 @@ function Item(props) {
       <button onClick={() => props.upVote(props.index)}>
         Up    
       </button>
-      <p>|</p>
+     <p>|</p> 
       <button onClick={() => props.downVote(props.index)}>  
-        Down
+          Down
       </button>
+       
     </Div>
   )
 }

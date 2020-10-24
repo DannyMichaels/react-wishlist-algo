@@ -28,7 +28,7 @@ function WishList() {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <h1 className="home__h1"> Your List </h1>
       {list.map((itemSelect, index) => 
         <Item list={itemSelect.item}
