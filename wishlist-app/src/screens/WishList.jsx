@@ -10,98 +10,74 @@ function WishList() {
     { item: '12oz Stumptown Coffee' },
   ]);
 
-  const downVote = (index) => {
-    if (index >= items.length - 1) return;
-    console.log('initial state of items:', items);
+  // I kinda like this approach more, easier to read.
+  //  it was fun to make a swap algo with splice though.
 
+  const onUpVote = async (idx) => {
+    // swap upwards
+    if (idx === 0) return;
+
+    let temp = '';
     let newItems = [...items];
 
-    console.log(
-      `replacing element at index ${index + 1}: ${JSON.stringify(
-        items[index + 1]
-      )} with element at index ${index}: ${JSON.stringify(
-        items[index]
-      )} and taking the replaced ${JSON.stringify(
-        items[index + 1]
-      )} element into a variable, this removedelement variable isn't going to be present in the array until the next operation`
-    );
-
-    const [removedElement] = newItems.splice(index + 1, 1, newItems[index]);
-
-    console.log({ removedElement });
-    console.log(`so now the items look like ${JSON.stringify([...newItems])}`);
+    temp = newItems[idx - 1];
+    console.log('temp:', temp);
 
     console.log(
-      `replace item at index ${index}: ${JSON.stringify(
-        items[index]
-      )} with the saved variable removedElement item at ${items.indexOf(
-        removedElement
-      )}: ${JSON.stringify(
-        items.find((_, idx) => idx === items.indexOf(removedElement))
-      )}`
+      `putting ${JSON.stringify(newItems[idx - 1])} where ${JSON.stringify(
+        newItems[idx]
+      )} was`
     );
 
-    newItems.splice(index, 1, removedElement);
+    newItems[idx - 1] = newItems[idx];
+
+    console.log(`so now items look like: ${JSON.stringify(newItems)}`);
 
     console.log(
-      `after all operations: item at index ${index}`,
-      newItems[index]
+      `replacing newItems[${idx}]: ${JSON.stringify(
+        newItems[idx]
+      )} with temp: ${JSON.stringify(temp)}`
     );
-    console.log(
-      `after all operations: item at index ${index + 1}`,
-      newItems[index + 1]
-    );
+
+    newItems[idx] = temp;
 
     console.log('final state after all operations:', newItems);
 
-    setItems([...newItems]);
+    setItems(newItems);
   };
 
-  const upVote = (index) => {
-    if (index === 0) return;
-    console.log('initial state of items:', items);
+  const onDownVote = (idx) => {
+    // swap downwards
+    if (idx === items.length - 1) return;
 
+    let temp = '';
     let newItems = [...items];
 
-    console.log(
-      `replacing element at index ${index - 1}: ${JSON.stringify(
-        items[index - 1]
-      )} with element at index ${index}: ${JSON.stringify(
-        items[index]
-      )} and taking the replaced ${JSON.stringify(
-        items[index - 1]
-      )} element into a variable, this removedElement variable isn't going to be present in the array until the next operation`
-    );
+    temp = newItems[idx + 1];
 
-    const [removedElement] = newItems.splice(index - 1, 1, newItems[index]); // say we select item in index 3, we take index 2 and movie it from index 2 to 3, but at this step it's going to stay at both indexes.
-
-    console.log({ removedElement });
-    console.log(`so now the items look like ${JSON.stringify([...newItems])}`);
+    console.log('temp:', temp);
 
     console.log(
-      `replace item at index ${index}: ${JSON.stringify(
-        items[index]
-      )} with the saved variable removedElement item at ${items.indexOf(
-        removedElement
-      )}: ${JSON.stringify(
-        items.find((_, idx) => idx === items.indexOf(removedElement))
-      )}`
+      `putting ${JSON.stringify(newItems[idx + 1])} where ${JSON.stringify(
+        newItems[idx]
+      )} was`
     );
 
-    newItems.splice(index, 1, removedElement);
+    newItems[idx + 1] = newItems[idx];
+
+    console.log(`so now items look like: ${JSON.stringify(newItems)}`);
 
     console.log(
-      `after all operations: item at index ${index}`,
-      newItems[index]
+      `replacing newItems[${idx}]: ${JSON.stringify(
+        newItems[idx]
+      )} with temp: ${JSON.stringify(temp)}`
     );
-    console.log(
-      `after all operations: item at index ${index - 1}`,
-      newItems[index - 1]
-    );
+
+    newItems[idx] = temp;
 
     console.log('final state after all operations:', newItems);
 
-    setItems([...newItems]);
+    setItems(newItems);
   };
 
   return (
@@ -117,8 +93,8 @@ function WishList() {
           item={item}
           index={index}
           key={index}
-          upVote={upVote}
-          downVote={downVote}
+          upVote={onUpVote}
+          downVote={onDownVote}
         />
       ))}
     </div>

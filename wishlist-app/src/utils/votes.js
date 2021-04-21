@@ -1,19 +1,29 @@
-export const downVote = (index) => {
-  if (index >= items.length - 1) return;
+const onUpVote = async (idx) => {
+  // swap upwards
+  if (idx === 0) return;
 
-  const [removedElement] = items.splice(index + 1, 1, items[index]);
+  let temp = '';
 
-  items.splice(index, 1, removedElement);
+  temp = items[idx - 1];
 
-  setItems([...items]);
+  items[idx - 1] = items[idx];
+
+  items[idx] = temp;
+
+  setItems(items);
 };
 
-export const upVote = (index) => {
-  if (index === 0) return;
+const onDownVote = (idx) => {
+  // swap downwards
+  if (idx === items.length - 1) return;
 
-  const [removedElement] = items.splice(index - 1, 1, items[index]); // say we select item in index 3, we take index 2 and movie it from index 2 to 3, but at this step it's going to stay at both indexes.
+  let temp = '';
 
-  items.splice(index, 1, removedElement);
+  temp = items[idx + 1];
 
-  setItems([...items]);
+  items[idx + 1] = items[idx];
+
+  items[idx] = temp;
+
+  setItems(items);
 };
