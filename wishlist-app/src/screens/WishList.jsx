@@ -15,24 +15,26 @@ function WishList() {
 
     if (index === stopIndex) return;
 
-    let newItems = [...items];
-
     let oneIndexDown = index - 1,
       oneIndexUp = index + 1;
 
     const itemToBeMovedIndex = direction === 'up' ? oneIndexDown : oneIndexUp;
 
-    const itemToBeMoved = newItems[index]; // item to be moved up or down
+    let newItemsState = swap(index, itemToBeMovedIndex);
+    setItems(newItemsState);
+  };
 
-    const [removedElement] = newItems.splice(
-      itemToBeMovedIndex,
-      1,
-      itemToBeMoved
-    ); // (start, deleteCount, item)
+  const swap = (currentIndex, nextIndex) => {
+    let newItems = [...items];
+    let temp;
 
-    newItems.splice(index, 1, removedElement);
+    temp = newItems[nextIndex];
 
-    setItems([...newItems]);
+    newItems[nextIndex] = newItems[currentIndex];
+
+    newItems[currentIndex] = temp;
+
+    return newItems;
   };
 
   return (
