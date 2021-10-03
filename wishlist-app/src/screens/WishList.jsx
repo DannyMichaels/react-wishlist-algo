@@ -24,15 +24,13 @@ function WishList() {
     setItems(newItemsState);
   };
 
-  const swap = (currentIndex, nextIndex) => {
+  const swap = (clickedItemIndex, nextItemIndex) => {
     let newItems = [...items];
-    let temp;
 
-    temp = newItems[nextIndex];
-
-    newItems[nextIndex] = newItems[currentIndex];
-
-    newItems[currentIndex] = temp;
+    [newItems[clickedItemIndex], newItems[nextItemIndex]] = [
+      newItems[nextItemIndex],
+      newItems[clickedItemIndex],
+    ];
 
     return newItems;
   };
