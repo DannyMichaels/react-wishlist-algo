@@ -42,15 +42,13 @@ let Div = styled.div`
   }
 `;
 
-function Item(props) {
+function Item({ itemName, index, handleVote }) {
   return (
     <Div>
-      <h4>
-        {props.item} index: {props.index}
-      </h4>
-      <button onClick={() => props.upVote(props.index)}>Up</button>
+      <h4>{itemName}</h4>
+      <button onClick={() => handleVote('up', index)}>Up</button>
       <p>|</p>
-      <button onClick={() => props.downVote(props.index)}>Down</button>
+      <button onClick={() => handleVote('down', index)}>Down</button>
     </Div>
   );
 }
